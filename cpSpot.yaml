@@ -1,0 +1,48 @@
+description: spotTask
+tasks:
+  isr:
+    class: lsst.ip.isr.isrTask.IsrTask
+    config:
+#      connections.ccdExposure: 'raw'
+#      connections.outputExposure: 'postISRCCD'
+      doBias: False
+      doVariance: True
+      doLinearize: False
+      doCrosstalk: False
+      doDefect: False
+      doNanMasking: True
+      doInterpolate: True
+      doBrighterFatter: False
+      doDark: False
+      doFlat: False
+      doOverscan: True
+      doApplyGains: True
+      doFringe: False
+  characterizeSpots:
+    class: lsst.pipe.tasks.characterizeSpots.CharacterizeSpotsTask
+    config:
+      doMeasurePsf: False
+      doWrite: False
+      detection.minPixels: 2
+      detection.background.binSize: 10
+      detection.thresholdType: 'stdev'
+      detection.thresholdValue: 5
+#  calibrate:
+#    class: lsst.pipe.tasks.calibrate.CalibrateTask
+#    config:
+##      connections.icSourceSchema: 'icSrc_schema'
+#      connections.exposure: 'icExp'
+#      connections.background: 'icExpBackground'
+#      connections.icSourceCat: 'icSrc'
+#      connections.outputExposure: 'calexp'
+#      connections.outputCat: 'src'
+#      connections.outputBackground: 'Background'
+#      doAstrometry: False
+#      doPhotoCal: False
+#      doApCorr: False
+#      doWrite: True
+#      doDeblend: False
+#      detection.background.binSize: 10
+#      detection.minPixels: 4
+#      detection.thresholdType: 'stdev'
+#      detection.thresholdValue: 25
