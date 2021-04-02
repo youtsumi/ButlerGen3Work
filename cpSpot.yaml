@@ -27,22 +27,22 @@ tasks:
       detection.background.binSize: 10
       detection.thresholdType: 'stdev'
       detection.thresholdValue: 5
-#  calibrate:
-#    class: lsst.pipe.tasks.calibrate.CalibrateTask
-#    config:
-##      connections.icSourceSchema: 'icSrc_schema'
-#      connections.exposure: 'icExp'
-#      connections.background: 'icExpBackground'
-#      connections.icSourceCat: 'icSrc'
+  calibrate:
+    class: lsst.pipe.tasks.calibrateSpots.CalibrateTask
+    config:
+      connections.icSourceSchema: 'spotSrc_schema'
+      connections.exposure: 'spotExp'
+      connections.background: 'spotExpBackground'
+      connections.icSourceCat: 'spotSrc'
 #      connections.outputExposure: 'calexp'
 #      connections.outputCat: 'src'
 #      connections.outputBackground: 'Background'
-#      doAstrometry: False
-#      doPhotoCal: False
-#      doApCorr: False
-#      doWrite: True
-#      doDeblend: False
-#      detection.background.binSize: 10
-#      detection.minPixels: 4
-#      detection.thresholdType: 'stdev'
-#      detection.thresholdValue: 25
+      doAstrometry: False
+      doPhotoCal: False
+      doApCorr: False
+      doWrite: True
+      doDeblend: False
+      detection.background.binSize: 10
+      detection.minPixels: 4
+      detection.thresholdType: 'stdev'
+      detection.thresholdValue: 25
