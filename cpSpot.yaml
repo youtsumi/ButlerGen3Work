@@ -5,7 +5,7 @@ tasks:
     config:
 #      connections.ccdExposure: 'raw'
 #      connections.outputExposure: 'postISRCCD'
-      doBias: False
+      doBias: True
       doVariance: True
       doLinearize: False
       doCrosstalk: False
