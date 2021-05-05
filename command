@@ -1,11 +1,29 @@
 ## Eric instruction https://confluence.slac.stanford.edu/pages/viewpage.action?pageId=245696522
+source /u/ek/echarles/lsst/software/stable/config/lsst.bashrc
+lsst_setup w_2021_16
 
 pipetask run \
     -b /sdf/group/lsst/camera/IandT/repo_gen3/spot_test \
     -i LSSTCam/raw/all,LSSTCam/calib,/calib/run_12781 \
     -d "instrument='LSSTCam' AND detector=29 AND exposure.observation_type='spot' AND exposure.science_program IN ('12788') AND exposure.seq_num=1820" \
-    -o u/youtsumi/spot/20210402a \
+    -o u/youtsumi/spot/20210405a \
     -p /u/ki/youtsumi/gpfs/Spot/cpSpot.yaml \
+    --register-dataset-types
+
+pipetask run \
+    -b /sdf/group/lsst/camera/IandT/repo_gen3/spot_test \
+    -i LSSTCam/raw/all,LSSTCam/calib,/calib/run_12781 \
+    -d "instrument='LSSTCam' AND detector=29 AND exposure.observation_type='spot' AND exposure.science_program IN ('12788') AND exposure.seq_num=1820" \
+    -o u/youtsumi/spot/junk \
+    -p /u/ki/youtsumi/gpfs/Spot/cpSpot2.yaml \
+    --register-dataset-types
+
+pipetask run \
+    -b /sdf/group/lsst/camera/IandT/repo_gen3/spot_test \
+    -i LSSTCam/raw/all,LSSTCam/calib,/calib/run_12781 \
+    -d "instrument='LSSTCam' AND detector=29 AND exposure.observation_type='spot' AND exposure.science_program IN ('12788')" \
+    -o u/youtsumi/spot/20210504b \
+    -p /u/ki/youtsumi/gpfs/Spot/cpSpot2.yaml \
     --register-dataset-types
 
 pipetask run \
