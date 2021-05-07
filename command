@@ -21,6 +21,14 @@ pipetask run \
 pipetask run \
     -b /sdf/group/lsst/camera/IandT/repo_gen3/spot_test \
     -i LSSTCam/raw/all,LSSTCam/calib,/calib/run_12781 \
+    -d "instrument='LSSTCam' AND detector=29 AND exposure.observation_type='spot' AND exposure.science_program IN ('12784', '12785', '12788', '12789')" \
+    -o u/youtsumi/spot/Nov2020 \
+    -p /u/ki/youtsumi/gpfs/Spot/cpSpot2.yaml \
+    --register-dataset-types -j 4
+
+pipetask run \
+    -b /sdf/group/lsst/camera/IandT/repo_gen3/spot_test \
+    -i LSSTCam/raw/all,LSSTCam/calib,/calib/run_12781 \
     -d "instrument='LSSTCam' AND detector=29 AND exposure.observation_type='spot' AND exposure.science_program IN ('12788')" \
     -o u/youtsumi/spot/20210504b \
     -p /u/ki/youtsumi/gpfs/Spot/cpSpot2.yaml \
